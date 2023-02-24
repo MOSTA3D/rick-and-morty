@@ -1,0 +1,8 @@
+schema: https://rickandmortyapi.com/graphql
+documents: src/graphql/*.graphql
+generates:
+  src/types/graphql-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

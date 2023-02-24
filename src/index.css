@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a{
+  text-decoration: none;
+}
+
+@keyframes rotate-animation {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to   {
+    transform: rotate(360deg) scale(3);
+  }
+}
+
+.rotate {
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  width: 300px;
+  animation: rotate-animation 1.5s infinite linear;
+}

@@ -1,0 +1,12 @@
+query GetCharacters {
+  characters {
+    info {
+      next
+    }
+    results {
+      id
+      name
+      image
+    }
+  }
+}
