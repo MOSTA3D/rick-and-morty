@@ -1,3 +1,6 @@
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { createTheme } from "@mui/material";
+
 export const MUI_THEME_CONF = Object.freeze({
   palette: {
     background: {
@@ -24,4 +27,12 @@ export const MUI_THEME_CONF = Object.freeze({
 });
 
 export const PAGE_SIZE = 20;
+
+export const apolloClient = new ApolloClient({
+  uri: "https://rickandmortyapi.com/graphql",
+  cache: new InMemoryCache(),
+});
+
+export const appTheme = createTheme(MUI_THEME_CONF);
+
 

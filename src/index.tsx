@@ -6,16 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { MUI_THEME_CONF } from "./utils/config";
+import { apolloClient, appTheme, MUI_THEME_CONF } from "./utils/config";
 import store from "./features/store";
 import { Provider } from "react-redux";
-
-const apolloClient = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
-});
-
-const appTheme = createTheme(MUI_THEME_CONF);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
