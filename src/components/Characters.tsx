@@ -12,8 +12,7 @@ function CharactersComponent() {
     variables: { page: 1, pageSize: PAGE_SIZE } as any,
   });
   const characters = data?.characters?.results;
-  const favChar = useAppSelector(state=> state.favoriteChar);
-
+  const favChar = useAppSelector((state) => state.favoriteChar);
 
   const handleLoadMore = () => {
     fetchMore({
@@ -36,13 +35,13 @@ function CharactersComponent() {
   let timeOutKey: NodeJS.Timeout;
 
   const handleWindowScroll = () => {
-    const scrollOffset = Math.ceil(window.scrollY + window.innerHeight);
-    const pageScrollEnd = document.body.scrollHeight;
     if (timeOutKey) {
       clearTimeout(timeOutKey);
     }
     timeOutKey = setTimeout(() => {
-      if (scrollOffset > (pageScrollEnd - 50)) {
+      const scrollOffset = Math.ceil(window.scrollY + window.innerHeight);
+      const pageScrollEnd = document.body.scrollHeight;
+      if (scrollOffset > pageScrollEnd - 50) {
         handleLoadMore();
       }
     }, 200);
@@ -63,7 +62,11 @@ function CharactersComponent() {
       <Grid container spacing={3}>
         {characters &&
           characters.map((character) => (
-            <CharacterCardComponent isFavorite={favChar === character?.id} key={character?.name} {...{ character }} />
+            <CharacterCardComponent
+              isFavorite={favChar === character?.id}
+              key={character?.name}
+              {...{ character }}
+            />
           ))}
       </Grid>
     </ComponentOrLoading>
